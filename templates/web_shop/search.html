@@ -1,0 +1,43 @@
+{% extends 'web_shop/base1.html' %}
+{% load staticfiles %}
+{% block content_block %}
+    <div class="products">
+        <div class="container">
+            {% if categoryTyp %}
+                <!--用户从index进入，在菜单中选择了某一分类，把分类的id作为参数cid传给products视图，获取cid对应的category对象和good_list，重定向到本页-->
+                <h1>{{ categoryTyp }}</h1>
+                {% elif brand %}<!--用户从index页面，在菜单中选择了某一热卖品牌，把品牌的id作为参数bid传给brands视图，获取bid对应的brand对象和good_list，重定向到本页-->
+                <h1>{{ brand.name }}</h1>
+            {% endif %}
+            <div class="col-md-9">
+                <div class="content-top1">
+                    {% if good_list %}
+                        {% for good in good_list %}
+                            <div class="col-md-4 col-md3">
+                                <div class="col-md1 simpleCart_shelfItem">
+                                    <a href="/detail/?chid={{ good.id }}">
+                                        <img class="img-responsive" src="/static/{{ good.image_url_i }}" alt=""/>
+                                    </a>
+                                    <h3><a href="/detail/?chid={{ good.id }}">{{ good.name }}</a></h3>
+                                    <div class="price">
+                                        <h5 class="item_price">{{ good.price }}元</h5>  <!--显示商品的现价-->
+                                        <a href="/add_cart/?chid={{ good.id }}" class="item_add">放入购物车</a>
+                                        <!--加入购物车的超链接，商品id是传值-->
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h2>还是空的哦~</h2>  <!--商品列表为空-->
+                    {% endif %}
+                    <div class="clearfix"></div>
+                    {% include 'web_shop/pagination.html' %}  <!--导入pagination.html-->
+                </div>
+
+            </div>
+            {% include 'web_shop/pro_right.html' %}<!--导入pro_right.html-->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock %}

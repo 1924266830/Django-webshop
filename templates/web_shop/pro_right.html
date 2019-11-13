@@ -1,0 +1,30 @@
+<div class="col-md-3 product-bottom">
+    <div class="product-bottom">
+        <h3 class="cate">热销榜</h3>
+        {% for hot in hot_list %}
+        <div class="product-go">
+            <div class="fashion-grid">
+                <a href="/detail/?chid={{ hot.id }}"><img class="img-responsive" src="/static/{{ hot.image_url_i }}"></a><!--超链接为最热商品的展示图片-->
+            </div>
+            <div class="fashion-grid1">
+                <h6 class="best2"><a href="/detail/?chid={{ hot.id }}">{{ hot.name }}</a></h6><!--最热商品的名称-->
+                <span class="price-in1">{{ hot.price }}元</span>
+                <span class=" best2">已卖出{{ hot.sales }}件</span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="tag">
+        <h3 class="cate">大类</h3>
+        <div class="tags">
+            <ul>
+                <li><a href="/products/?categoryTyp=客厅">客厅</a></li>
+                <li><a href="/products/?categoryTyp=卧室">卧室</a></li>
+                <li><a href="/products/?categoryTyp=餐厅书房">餐厅书房</a></li>
+                <li><a href="/products/?categoryTyp=成套">成套</a></li>
+            <div class="clearfix"></div>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<div class="banner">
+
+    <div class="col-sm-12 matter-banner">
+        <div class="slider">
+            <div class="callbacks_container" >
+                <ul class="rslides" id="slider">
+                    {% for ad in ad_list %}
+                    <li >
+                        <img src="/static/{{ ad.image_url }}" alt="">
+                     </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"> </div>
+    </div>

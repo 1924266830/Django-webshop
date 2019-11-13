@@ -1,0 +1,15 @@
+<div id="pagination">
+    <ul id="pagination-flickr">
+    {% if good_list.has_previous %}
+        <li class="previous"><a href="?page={{ good_list.previous_page_number }}{% if categoryTyp %}&categoryTyp={{ categoryTyp }}{% endif %}{% if brand%}&brand={{brand}}{% endif %}{% if search_word %}&search_word={{ search_word }}{% endif %}">&laquo;上一页</a></li>
+    {% else %}
+        <li class="previous-off">&laquo;上一页</li>
+    {% endif %}
+     <li class="active">{{ good_list.number }}/{{ good_list.paginator.num_pages }}</li>
+    {% if good_list.has_next %}
+        <li class="next"><a href="?page={{ good_list.next_page_number }}{% if categoryTyp %}&categoryTyp={{ categoryTyp }}{% endif %}{% if brand%}&brand={{brand}}{% endif %}{% if search_word %}&search_word={{ search_word }}{% endif %}">下一页 &raquo;</a></li>
+    {% else %}
+        <li class="next-off">下一页 &raquo;</li>
+    {% endif %}
+   </ul>
+</div>

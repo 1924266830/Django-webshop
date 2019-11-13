@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/static/CSS" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/JS" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/JS/jquery-3.2.1.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/JS/responsiveslides.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/ad" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/furniture" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/ad.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/base1.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/checkout.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/error.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/pagination.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/pagination2.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/pro_right.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/products.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/templates/web_shop/search.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/uploads" charset="GBK" />
+  </component>
+</project>

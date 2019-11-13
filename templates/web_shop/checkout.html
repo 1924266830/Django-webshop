@@ -1,0 +1,58 @@
+{% extends 'web_shop/base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+    <div class="container">
+        <div class="check-out">
+            <h1>{{ request.session.username }}的购物车</h1>
+            <table>
+                {% if cart %}
+                    <tr>
+                        <th>商品</th>
+                        <th>数量</th>
+                        <th>现价</th>
+                        <th>小计</th>
+                    </tr>
+                {% else %}
+                    <p>购物车是空的哦！</p>
+                {% endif %}
+
+                {% for item in cart.items %}
+                    <tr>
+
+                        <td class="ring-in">
+                            <a href="/detail/?chid={{ item.good.id }}" class="at-in">
+                                <!--通过此方式来传递商品id-->
+                                <input type="hidden" name="chid" value="{{ item.good.id }}">
+                                <img src="/static/{{ item.good.image_url_c }}" class="img-responsive" alt="">
+                            </a>
+                            <div class="sed">
+                                <h5>{{ item.good.name }}</h5>
+                                <p>{{ item.good.desc }}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </td>
+                        <td class="check">
+                            <a  id="subGood" class=" to-buy" href="/subGood/?goodId={{ item.good.id }}">—</a>
+                            <input type="text" value="{{ item.quantity }}" readonly="readonly">
+                            <a   id="addGood" class=" to-buy" href="/addGood/?goodId={{ item.good.id }}">+</a>
+                        </td>
+                        <td>{{ item.good.price }}元</td>
+                        <td>{{ item.sum_price }}元</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td>
+                        <a href="/final_order/" class=" to-buy">下单</a>
+                        <span style="width:50px;"></span>
+                        <a href="/index/" class=" to-buy">继续购买</a>
+                        &nbsp;&nbsp;&nbsp;总价：{{ cart.total_price }}元
+                    </td>
+                </tr>
+            </table>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock %}
+
+

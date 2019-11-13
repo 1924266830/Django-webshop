@@ -1,0 +1,43 @@
+{% extends 'web_shop/base1.html' %}
+
+{% block banner_block %}
+    {% include 'web_shop/ad.html' %}
+{% endblock %}
+
+{% block content_block %}
+    <div class="content">
+        <div class="container">
+            <div class="content-top">
+                <h1>最新商品</h1>
+                <div class="content-top1">
+                    {% for good in good_list %}  <!--good_list不为空-->
+                        <form action="/add_cart/?chid={{ good.id }}" method="post" id="subform{{ good.id }}">
+                            {% csrf_token %}
+                            <div class="col-md-3 col-md2">
+                                <div class="col-md1 simpleCart_shelfItem">
+                                    <a href="/detail/?chid={{ good.id }}">  <!--指向商品详细信息的超链接-->
+                                        <img class="img-responsive" src="/static/{{ good.image_url_i }}" alt="">
+                                        <!--商品的展示图片MEDIA_URL是全局变量-->
+                                    </a>
+                                    <h3><a href="/detail/?chid={{ good.id }}">{{ good.name }}</a></h3>
+                                    <!--商品的名称也可以展示详细信息-->
+                                    <div class="price">
+                                        <h5 class="item_price">{{ good.price }}元</h5><!--商品的现价-->
+                                        <input type="hidden" name="chid" value="{{ good.id }}">
+                                        <a href="#" class="item_add"
+                                           onclick="document.getElementById('subform{{ good.id }}').submit()">放入购物车</a>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            {% include 'web_shop/pagination.html' %}
+        </div>
+    </div>
+{% endblock %}

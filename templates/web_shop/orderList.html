@@ -1,0 +1,50 @@
+{% extends 'web_shop/base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+    <div class="container">
+        <div class="check-out">
+            <h1>{{ request.session.username }}的订单</h1>
+            <table>
+                {% if orders  %}
+                    <tr>
+                        <th>订单号</th>
+                        <th>订单描述</th>
+                        <th>总价</th>
+                        <th>下单时间</th>
+                        <th>操作</th>
+                    </tr>
+                {% else %}
+                    <p>暂时没有订单哦！</p>
+                {% endif %}
+
+                {% for order in orders %}
+                    <tr>
+                        <td>
+                            <p>{{ order.id }}</p>
+                        </td>
+                        <td >
+                                <p>{{ order.staff}}</p>
+                            <div class="clearfix"></div>
+                        </td>
+                        <td>{{ order.price }}元</td>
+                        <td>
+                            <p>{{ order.order_date }}</p>
+                        </td>
+                        <td><a href="/show_order/?orderId={{ order.id }}" class="to-buy">订单详情</a></td>
+
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td>
+                        <span style="width:50px;"></span>
+                        <a href="/index/" class=" to-buy">继续购买</a>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
